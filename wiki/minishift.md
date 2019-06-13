@@ -133,6 +133,7 @@ rm -rf ~/.kube
 ```
 
 # References
+- https://developers.redhat.com/products/cdk/hello-world/
 - https://github.com/minishift/minishift/issues/3144
 - https://github.com/minishift/minishift-centos-iso/issues/222
 - https://torstenwalter.de/minishift/openshift/homebrew/2017/07/18/install-minishift-on-osx.html
