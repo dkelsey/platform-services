@@ -44,11 +44,18 @@ oc -n default set env dc/docker-registry REGISTRY_OPENSHIFT_SERVER_ADDR=docker-r
 # Attach RHEL subscription (enables Red Hat Software Collections)
 When you setup minishift, and correctly configure your developer subscription, there will be a subscription pool available, however it will not be _attached_.  This describes how to find the `Pool ID` and attach it.  If you get an error in a build from `microdnf`: `repo rhel-7-server-rpms not found`, you have not correctly setup your subscription in minishift; follow the instructions below.
 
-### With minishift running ssh in and find the available pools.
+### With minishift running ssh in.
 ```
 $ minishift ssh
 Last login: Sat Jun  8 15:00:08 2019 from gateway
 [docker@minishift ~]$
+```
+
+### Refresh subscription-manager
+```
+[docker@minishift ~]$ sudo subscription-manager refresh
+1 local certificate has been deleted.
+All local data refreshed
 ```
 
 ### List available subscriptions
@@ -123,7 +130,7 @@ _for me the Pool ID: was `8a85f9916977b22c0169aafb6379038b`_
 [docker@minishift ~]$ sudo subscription-manager attach --pool=8a85f9916977b22c0169aafb6379038b
 Successfully attached a subscription for: Red Hat Developer Subscription
 ```
-### Assert that the rhscl repos are not registerred
+### Assert that the rhscl repos are registerred
 ```
 [docker@minishift ~]$ sudo subscription-manager repos --list | grep scl
 Repo ID:   rhel-server-rhscl-7-eus-source-rpms
@@ -152,7 +159,7 @@ Repository 'rhel-server-rhscl-7-rpms' is enabled for this system.
 ```
 ### Pop out of the minishift env
 ```
-[docker@minishift ~]$ [ctrl+D]exit
+[docker@minishift ~]$ [ctrl+d]
 logout
 ```
 # Setting up shared namespaces/resources
