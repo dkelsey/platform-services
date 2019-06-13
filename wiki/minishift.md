@@ -42,7 +42,7 @@ oc -n default set env dc/docker-registry REGISTRY_OPENSHIFT_SERVER_ADDR=docker-r
 ```
 
 # Attach RHEL subscription (enables Red Hat Software Collections)
-When you setup minishift, and correctly configure your developer subscription, there will be a subscription pool available, however it will not be _attached_.  This describes how to find the `Pool ID` and attach it.
+When you setup minishift, and correctly configure your developer subscription, there will be a subscription pool available, however it will not be _attached_.  This describes how to find the `Pool ID` and attach it.  If you get an error in a build from `microdnf`: `repo rhel-7-server-rpms not found`, you have not correctly setup your subscription in minishift; follow the instructions below.
 
 ### With minishift running ssh in and find the available pools.
 ```
