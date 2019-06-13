@@ -10,7 +10,8 @@ minishift addons disable anyuid
 # Check number of logical CPUs in the machine
 sysctl -n hw.ncpu
 
-# Note: Before starting your cluster for the very first time, you will be prompt for Redhat Developer Login/password
+# Note: Before starting your cluster for the very first time, you will be prompt for a
+#       Redhat Developer Login/password.
 # You can create a free developer subscription at https://developer.redhat.com
 # I found these instructions useful: https://developers.redhat.com/products/cdk/hello-world/
 # Particularly: "Add Red Hat Developer Program username to your environment"
@@ -21,7 +22,7 @@ $ export MINISHIFT_USERNAME='<RED_HAT_USERNAME>'
 
 $ echo export MINISHIFT_USERNAME=$MINISHIFT_USERNAME >> ~/.bash_profile
 
-# start your cluster: (watch for the prompt to login to your redhat account
+# start your cluster: (watch for the prompt to login to your redhat account)
 
 minishift start --openshift-version=3.11.59 --memory=8GB --cpus=8
 
